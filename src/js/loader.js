@@ -21,9 +21,7 @@ export default class GameSavingLoader {
         const response = await read();
         const value = await json(response);
         const valueParsed = JSON.parse(value);
-        console.log(valueParsed.id);
         const obj = new GameSaving(valueParsed.id, valueParsed.created, valueParsed.userInfo);
-        console.log(obj);
         return obj;
       } catch (e) {
         return e;
@@ -31,12 +29,3 @@ export default class GameSavingLoader {
     })();
   }
 }
-
-// return read()
-// .then((response) => json(response))
-// .then((value) => {
-//   const valueParsed = JSON.parse(value);
-//   const obj = new GameSaving(valueParsed.id, valueParsed.created, valueParsed.userInfo);
-//   return obj;
-// })
-// .catch((err) => err);
